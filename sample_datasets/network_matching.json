@@ -1,0 +1,37 @@
+{
+  "graph_type": "bipartite",
+  "description": "Network resource allocation matching problem",
+  "left_nodes": [
+    {"id": "server1", "name": "Web Server", "capacity": 100, "location": "US-East"},
+    {"id": "server2", "name": "Database Server", "capacity": 150, "location": "US-West"},
+    {"id": "server3", "name": "Cache Server", "capacity": 80, "location": "EU-Central"},
+    {"id": "server4", "name": "API Server", "capacity": 120, "location": "Asia-Pacific"},
+    {"id": "server5", "name": "File Server", "capacity": 200, "location": "US-Central"},
+    {"id": "server6", "name": "Backup Server", "capacity": 90, "location": "EU-West"}
+  ],
+  "right_nodes": [
+    {"id": "task1", "name": "Web Hosting", "demand": 60, "priority": "high"},
+    {"id": "task2", "name": "Data Processing", "demand": 100, "priority": "critical"},
+    {"id": "task3", "name": "Cache Management", "demand": 40, "priority": "medium"},
+    {"id": "task4", "name": "API Processing", "demand": 80, "priority": "high"},
+    {"id": "task5", "name": "File Storage", "demand": 120, "priority": "medium"},
+    {"id": "task6", "name": "Backup Operations", "demand": 70, "priority": "low"},
+    {"id": "task7", "name": "Analytics", "demand": 90, "priority": "medium"},
+    {"id": "task8", "name": "Monitoring", "demand": 30, "priority": "high"}
+  ],
+  "edges": [
+    {"from": "server1", "to": "task1", "weight": 0.95, "cost": 10},
+    {"from": "server1", "to": "task3", "weight": 0.7, "cost": 15},
+    {"from": "server1", "to": "task8", "weight": 0.8, "cost": 12},
+    {"from": "server2", "to": "task2", "weight": 0.9, "cost": 8},
+    {"from": "server2", "to": "task7", "weight": 0.85, "cost": 11},
+    {"from": "server3", "to": "task3", "weight": 0.95, "cost": 5},
+    {"from": "server3", "to": "task1", "weight": 0.6, "cost": 20},
+    {"from": "server4", "to": "task4", "weight": 0.9, "cost": 9},
+    {"from": "server4", "to": "task8", "weight": 0.75, "cost": 14},
+    {"from": "server5", "to": "task5", "weight": 0.95, "cost": 7},
+    {"from": "server5", "to": "task6", "weight": 0.8, "cost": 13},
+    {"from": "server6", "to": "task6", "weight": 0.9, "cost": 6},
+    {"from": "server6", "to": "task2", "weight": 0.7, "cost": 16}
+  ]
+}

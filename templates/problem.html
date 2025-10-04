@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="problem-layout">
+    <div class="problem-header">
+        <h2 class="problem-title">{{ problem_type|upper }} Problem</h2>
+        <div class="view-toggle">
+            <button id="view-2d" class="cosmic-btn secondary">2D View</button>
+            <button id="view-3d" class="cosmic-btn">3D View</button>
+        </div>
+    </div>
+
+    <div class="workspace">
+        <div class="visualization-panel">
+            <canvas id="problem-canvas"></canvas>
+            <div id="three-container" class="hidden"></div>
+        </div>
+        
+        <div class="controls-panel">
+            <h3>Strategies</h3>
+            <div class="strategies">
+                <div class="strategy-card" data-algorithm="greedy">Greedy</div>
+                <div class="strategy-card" data-algorithm="dp">Dynamic Programming</div>
+                <div class="strategy-card" data-algorithm="backtracking">Backtracking</div>
+                <div class="strategy-card" data-algorithm="branchbound">Branch & Bound</div>
+                <div class="strategy-card" data-algorithm="divideconquer">Divide & Conquer</div>
+            </div>
+
+            <div class="run-controls">
+                <button id="run-btn" class="cosmic-btn" onclick="runOptimization()">Run</button>
+                <button class="cosmic-btn secondary" onclick="pauseOptimization()">Pause</button>
+                <button class="cosmic-btn secondary" onclick="resetVisualization()">Reset</button>
+            </div>
+
+            <div class="metrics">
+                <div class="metric"><span class="label">Iterations</span> <span id="iterations">0</span></div>
+                <div class="metric"><span class="label">Current Score</span> <span id="current-score">-</span></div>
+                <div class="metric"><span class="label">Exec Time</span> <span id="execution-time">0.0s</span></div>
+                <div class="progress"><div id="score-progress"></div></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// toggle strategy card selection
+Array.from(document.querySelectorAll('.strategy-card')).forEach(card => {
+    card.addEventListener('click', () => card.classList.toggle('selected'));
+});
+
+// set up 2D viz initially
+initVisualization();
+
+// 2D/3D toggle
+const container2D = document.getElementById('problem-canvas');
+const container3D = document.getElementById('three-container');
+
+document.getElementById('view-2d').addEventListener('click', () => {
+    container3D.classList.add('hidden');
+    container2D.classList.remove('hidden');
+});
+
+document.getElementById('view-3d').addEventListener('click', () => {
+    container2D.classList.add('hidden');
+    container3D.classList.remove('hidden');
+    if (window.initThreeGalaxy) {
+        window.initThreeGalaxy('three-container');
+    }
+});
+</script>
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="galaxy-view">
+    <!-- Central Hub -->
+    <div class="central-hub">
+        <div class="hub-glow"></div>
+        <div class="hub-core">
+            <span class="hub-text">OPTIMIZATION<br>HUB</span>
+        </div>
+    </div>
+
+    <!-- Orbiting Planets (Problems) -->
+    <div class="planet-orbit orbit-1">
+        <div class="planet planet-tsp" data-problem="tsp">
+            <div class="planet-ring"></div>
+            <div class="planet-glow"></div>
+            <span class="planet-label">TSP</span>
+        </div>
+    </div>
+
+    <div class="planet-orbit orbit-2">
+        <div class="planet planet-knapsack" data-problem="knapsack">
+            <div class="planet-glow"></div>
+            <span class="planet-label">KNAPSACK</span>
+        </div>
+    </div>
+
+    <div class="planet-orbit orbit-3">
+        <div class="planet planet-matching" data-problem="matching">
+            <div class="planet-glow"></div>
+            <span class="planet-label">MATCHING</span>
+        </div>
+    </div>
+
+    <!-- Control Panel -->
+    <div class="control-panel">
+        <div class="panel-header">
+            <h3>STRATEGY CONTROL</h3>
+            <div class="panel-lights">
+                <div class="light light-1"></div>
+                <div class="light light-2"></div>
+                <div class="light light-3"></div>
+            </div>
+        </div>
+        
+        <div class="strategy-mixer">
+            <h4>ALGORITHM HYBRIDIZER</h4>
+            <div class="slider-container">
+                <label>Greedy ←→ Dynamic Programming</label>
+                <input type="range" id="hybrid-slider" min="0" max="100" value="50" class="neon-slider">
+                <div class="slider-glow"></div>
+            </div>
+        </div>
+
+        <div class="quick-stats">
+            <div class="stat-card">
+                <span class="stat-value" id="total-runs">0</span>
+                <span class="stat-label">TOTAL RUNS</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value" id="best-score">∞</span>
+                <span class="stat-label">BEST SCORE</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Floating Action Buttons -->
+<div class="floating-actions">
+    <button class="cosmic-btn upload-btn" onclick="showUploadModal()">
+        <span class="btn-glow"></span>
+        📁 UPLOAD DATASET
+    </button>
+    <button class="cosmic-btn history-btn" onclick="showHistory()">
+        <span class="btn-glow"></span>
+        ⏱️ VIEW HISTORY
+    </button>
+</div>
+
+<!-- Upload Modal -->
+<div id="upload-modal" class="modal cosmic-modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeUploadModal()">&times;</span>
+        <h3>UPLOAD DATASET</h3>
+        <div class="upload-zone" id="drop-zone">
+            <div class="upload-icon">📤</div>
+            <p>Drag & drop your dataset file here</p>
+            <p class="file-types">Supported: .tsp, .csv, .json</p>
+            <input type="file" id="file-input" hidden>
+            <button class="cosmic-btn secondary" onclick="document.getElementById('file-input').click()">
+                BROWSE FILES
+            </button>
+            <div id="file-name-display" style="margin-top: 1rem; color: var(--accent-cyan);"></div>
+            <button id="upload-button" class="cosmic-btn" style="display: none; margin-top: 1rem;">
+                UPLOAD
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Initialize galaxy animations
+    document.addEventListener('DOMContentLoaded', function() {
+        initGalaxy();
+        loadQuickStats();
+        createParticles();
+    });
+
+    // Planet click handlers
+    document.querySelectorAll('.planet').forEach(planet => {
+        planet.addEventListener('click', function() {
+            const problemType = this.dataset.problem;
+            window.location.href = `/problem/${problemType}`;
+        });
+    });
+</script>
+{% endblock %}

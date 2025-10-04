@@ -1,0 +1,35 @@
+{
+  "graph_type": "bipartite",
+  "description": "Sample bipartite matching problem - Job assignments",
+  "left_nodes": [
+    {"id": "person1", "name": "Alice", "skills": ["programming", "design"]},
+    {"id": "person2", "name": "Bob", "skills": ["programming", "testing"]},
+    {"id": "person3", "name": "Carol", "skills": ["design", "marketing"]},
+    {"id": "person4", "name": "David", "skills": ["testing", "documentation"]},
+    {"id": "person5", "name": "Eve", "skills": ["marketing", "management"]}
+  ],
+  "right_nodes": [
+    {"id": "job1", "title": "Frontend Developer", "required_skills": ["programming", "design"]},
+    {"id": "job2", "title": "Backend Developer", "required_skills": ["programming"]},
+    {"id": "job3", "title": "QA Engineer", "required_skills": ["testing"]},
+    {"id": "job4", "title": "UI Designer", "required_skills": ["design"]},
+    {"id": "job5", "title": "Marketing Manager", "required_skills": ["marketing"]},
+    {"id": "job6", "title": "Technical Writer", "required_skills": ["documentation"]},
+    {"id": "job7", "title": "Project Manager", "required_skills": ["management"]}
+  ],
+  "edges": [
+    {"from": "person1", "to": "job1", "weight": 0.9},
+    {"from": "person1", "to": "job2", "weight": 0.8},
+    {"from": "person1", "to": "job4", "weight": 0.7},
+    {"from": "person2", "to": "job1", "weight": 0.6},
+    {"from": "person2", "to": "job2", "weight": 0.9},
+    {"from": "person2", "to": "job3", "weight": 0.8},
+    {"from": "person3", "to": "job1", "weight": 0.5},
+    {"from": "person3", "to": "job4", "weight": 0.9},
+    {"from": "person3", "to": "job5", "weight": 0.8},
+    {"from": "person4", "to": "job3", "weight": 0.9},
+    {"from": "person4", "to": "job6", "weight": 0.8},
+    {"from": "person5", "to": "job5", "weight": 0.9},
+    {"from": "person5", "to": "job7", "weight": 0.8}
+  ]
+}

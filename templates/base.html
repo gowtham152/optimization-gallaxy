@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimization Galaxy - Multi-Strategy Combinatorial Optimization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Nebula Background -->
+    <div class="nebula-background">
+        <div class="star-field">
+            <div class="stars"></div>
+            <div class="stars"></div>
+            <div class="stars"></div>
+        </div>
+        <div class="nebula-layer-1"></div>
+        <div class="nebula-layer-2"></div>
+    </div>
+
+    <!-- Particle Effects Container -->
+    <div id="particles-container"></div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <header class="cosmic-header">
+            <h1 class="galaxy-title">
+                <span class="title-glow">OPTIMIZATION</span>
+                <span class="title-neon">GALAXY</span>
+            </h1>
+            <p class="subtitle">Multi-Strategy Combinatorial Optimization Framework</p>
+        </header>
+
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
+    <script src="{{ url_for('static', filename='js/three_galaxy.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/viz.js') }}"></script>
+    
+    {% block scripts %}{% endblock %}
+</body>
+</html>

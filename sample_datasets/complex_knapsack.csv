@@ -1,0 +1,26 @@
+item_id,weight,value,name,category
+1,15,120,Professional Laptop,Electronics
+2,8,80,Wireless Mouse,Electronics
+3,25,200,4K Monitor,Electronics
+4,12,90,Mechanical Keyboard,Electronics
+5,30,250,Gaming Chair,Furniture
+6,18,140,Desk Lamp,Furniture
+7,22,180,External SSD,Storage
+8,10,70,USB Hub,Accessories
+9,35,300,Standing Desk,Furniture
+10,6,45,Cable Management,Accessories
+11,28,220,Printer,Electronics
+12,14,110,Webcam,Electronics
+13,20,160,Speakers,Electronics
+14,16,130,Tablet,Electronics
+15,24,190,Router,Electronics
+16,11,85,Power Bank,Accessories
+17,19,150,Headphones,Electronics
+18,13,100,Smartphone,Electronics
+19,26,210,Coffee Machine,Appliances
+20,9,65,Desk Organizer,Accessories
+21,32,280,Air Purifier,Appliances
+22,17,135,Smart Watch,Electronics
+23,21,170,Bluetooth Speaker,Electronics
+24,29,240,Ergonomic Chair,Furniture
+25,7,50,Phone Stand,Accessories

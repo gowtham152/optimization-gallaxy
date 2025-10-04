@@ -1,0 +1,12 @@
+# Test to check if basic Flask works
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def hello():
+    return "Hello World! Flask is working."
+
+if __name__ == '__main__':
+    print("Testing basic Flask...")
+    app.run(port=5000, debug=True)
